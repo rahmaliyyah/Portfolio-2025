@@ -59,7 +59,7 @@ export const HeroSection = ({ onEnter }: HeroSectionProps) => {
         >
           <span className="text-foreground font-medium">Aspiring Full-Stack Developer</span>
           <br />
-          Computer Science Student passionate about creating 
+          An Information Technology Student who passionate about creating 
           <span className="text-neon-purple"> impactful web experiences</span> and 
           <span className="text-neon-pink"> innovative solutions</span>.
         </p>
