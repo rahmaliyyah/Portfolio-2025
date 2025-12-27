@@ -41,16 +41,16 @@ export const HeroSection = ({ onEnter }: HeroSectionProps) => {
       <div className="max-w-2xl">
         <div className="mb-4">
           <span className="text-neon-cyan text-sm font-medium tracking-widest uppercase opacity-80">
-            Welcome to my universe
+            welcome to my portfolio
           </span>
         </div>
         
         <h1 
           ref={titleRef}
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight opacity-0"
+          className="font-display text-5xl md:text-7xl lg:text-5xl font-bold mb-6 leading-tight opacity-0"
         >
           <span className="text-foreground">I'm </span>
-          <span className="text-gradient">Rahma</span>
+          <span className="text-gradient">Rahma Aliyyah</span>
         </h1>
         
         <p 
@@ -84,12 +84,8 @@ export const HeroSection = ({ onEnter }: HeroSectionProps) => {
             </svg>
           </span>
         </button>
-        
-        {/* Decorative elements */}
-        <div className="absolute bottom-10 left-8 md:left-16 lg:left-24 flex items-center gap-4 text-muted-foreground text-sm">
-          <div className="w-12 h-[1px] bg-gradient-to-r from-neon-purple to-transparent" />
-          <span>Scroll to explore</span>
-        </div>
+  
+
       </div>
     </section>
   );
