@@ -1,21 +1,15 @@
-import { useEffect, useRef, useState, Suspense } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { Canvas } from '@react-three/fiber';
 import { Github, Linkedin, Mail, Send, Twitter } from 'lucide-react';
-import { TrackingEyes } from '@/components/three/TrackingEyes';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ContactSectionProps {
   visible: boolean;
-  mousePosition: { x: number; y: number };
 }
 
-export const ContactSection = ({ visible, mousePosition }: ContactSectionProps) => {
+export const ContactSection = ({ visible }: ContactSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const socialRef = useRef<HTMLDivElement>(null);
-  const eyesContainerRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
   
   const [formData, setFormData] = useState({
     name: '',
@@ -46,18 +40,8 @@ export const ContactSection = ({ visible, mousePosition }: ContactSectionProps) 
         },
         '-=0.5'
       );
-      
-      // Animate eyes container on desktop
-      if (!isMobile && eyesContainerRef.current) {
-        tl.fromTo(
-          eyesContainerRef.current,
-          { opacity: 0, scale: 0.8, x: 80 },
-          { opacity: 1, scale: 1, x: 0, duration: 1.2, ease: 'elastic.out(1, 0.5)' },
-          '-=0.8'
-        );
-      }
     }
-  }, [visible, isMobile]);
+  }, [visible]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,7 +58,7 @@ export const ContactSection = ({ visible, mousePosition }: ContactSectionProps) 
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen flex flex-col items-center justify-center px-8 py-20 relative z-10"
+      className="h-screen flex flex-col items-center justify-center px-8 py-20 relative z-10"
     >
       {/* Portal/Black hole effect background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -94,8 +78,8 @@ export const ContactSection = ({ visible, mousePosition }: ContactSectionProps) 
         </p>
       </div>
       
-      <div className={`grid gap-8 max-w-6xl w-full relative z-10 ${isMobile ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2'}`}>
-        {/* LEFT: Contact Form + Social Links */}
+      <div className="max-w-2xl w-full relative z-10">
+        {/* Contact Form + Social Links */}
         <div className="flex flex-col space-y-8">
           {/* Contact Form */}
           <form 
@@ -167,11 +151,11 @@ export const ContactSection = ({ visible, mousePosition }: ContactSectionProps) 
           
           {/* Social Links */}
           <div className="space-y-4">
-            <h3 className="font-display text-lg font-bold text-foreground">
+            <h3 className="font-display text-lg font-bold text-foreground text-center">
               Or find me on
             </h3>
             
-            <div ref={socialRef} className="flex gap-4">
+            <div ref={socialRef} className="flex gap-4 justify-center">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -188,8 +172,8 @@ export const ContactSection = ({ visible, mousePosition }: ContactSectionProps) 
             </div>
             
             {/* Quick contact info */}
-            <div className="flex flex-wrap gap-4 mt-4">
-              <div className="glass rounded-xl p-3 flex-1 min-w-[200px]">
+            <div className="flex flex-wrap gap-4 mt-4 justify-center">
+              <div className="glass rounded-xl p-3 min-w-[200px]">
                 <p className="text-xs text-muted-foreground mb-1">Email</p>
                 <a 
                   href="mailto:rahma@example.com" 
@@ -199,7 +183,7 @@ export const ContactSection = ({ visible, mousePosition }: ContactSectionProps) 
                 </a>
               </div>
               
-              <div className="glass rounded-xl p-3 flex-1 min-w-[200px]">
+              <div className="glass rounded-xl p-3 min-w-[200px]">
                 <p className="text-xs text-muted-foreground mb-1">Based in</p>
                 <p className="text-foreground font-medium text-sm">
                   🌍 Available Worldwide
@@ -208,39 +192,6 @@ export const ContactSection = ({ visible, mousePosition }: ContactSectionProps) 
             </div>
           </div>
         </div>
-        
-        {/* RIGHT: 3D Tracking Eyes (Desktop only) */}
-        {!isMobile && (
-          <div 
-            ref={eyesContainerRef}
-            className="hidden lg:flex items-center justify-center opacity-0"
-          >
-            <div className="w-full h-[500px] relative">
-              <Canvas
-                camera={{ position: [0, 0, 2], fov: 50 }}
-                gl={{ antialias: true, alpha: true }}
-                dpr={[1, 2]}
-              >
-                <Suspense fallback={null}>
-                  <ambientLight intensity={0.4} />
-                  <pointLight position={[2, 2, 2]} intensity={0.8} color="#8b5cf6" />
-                  <pointLight position={[-2, -1, 2]} intensity={0.4} color="#ec4899" />
-                  <TrackingEyes mousePosition={mousePosition} />
-                </Suspense>
-              </Canvas>
-              
-              {/* Glow effect behind eyes */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-neon-purple/20 rounded-full blur-[80px]" />
-              </div>
-              
-              {/* "I'm watching you" hint text */}
-              <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-muted-foreground/50 text-xs font-mono">
-                👀 watching your cursor...
-              </p>
-            </div>
-          </div>
-        )}
       </div>
       
       {/* Islamic geometric pattern overlay */}

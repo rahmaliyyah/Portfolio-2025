@@ -268,24 +268,10 @@ const Index = () => {
           <ProjectsSection visible={currentSection === 2} />
           <ExperienceSection visible={currentSection === 3} />
           <CertificatesSection visible={currentSection === 4} />
-          <ContactSection visible={currentSection === 5} mousePosition={mousePosition} />
+          <ContactSection visible={currentSection === 5} />
         </div>
       </main>
 
-      {/* Section indicators */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-3">
-        {[...Array(totalSections)].map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleNavigate(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-500 ease-out ${
-              currentSection === index
-                ? 'bg-neon-purple w-2 h-8 glow-box'
-                : 'bg-muted-foreground/30 hover:bg-muted-foreground/60'
-            }`}
-          />
-        ))}
-      </div>
 
       {/* Background gradient overlays with parallax */}
       <div className="fixed inset-0 pointer-events-none z-0">

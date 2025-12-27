@@ -37,14 +37,17 @@ export const Scene3D = ({ currentSection, mousePosition }: Scene3DProps) => {
             speed={0.5}
           />
           
-          <ParticleField count={1500} spread={25} size={0.015} />
-          
+          {/* Only show particles in hero section */}
           {currentSection === 0 && (
-            <group position={[2, 0, 0]}>
-              <FloatingLaptop mousePosition={mousePosition} />
-            </group>
+            <>
+              <ParticleField count={1500} spread={25} size={0.015} />
+              <group position={[2, 0, 0]}>
+                <FloatingLaptop mousePosition={mousePosition} />
+              </group>
+            </>
           )}
           
+          {/* Skills constellation without background particles */}
           <SkillConstellation visible={currentSection === 1} />
           
           <Environment preset="night" />
