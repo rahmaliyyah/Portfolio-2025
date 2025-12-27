@@ -15,18 +15,16 @@ const Index = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
   const lenisRef = useRef<Lenis | null>(null);
-  const isScrollingRef = useRef(false);
-
-  const totalSections = 6;
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     // Initialize Lenis for smooth scrolling
     lenisRef.current = new Lenis({
-      duration: 1.5,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.5,
+      wheelMultiplier: 1,
     });
 
     function raf(time: number) {
@@ -41,29 +39,26 @@ const Index = () => {
     };
   }, []);
 
-  // Handle wheel events for section navigation
+  // Detect current section based on scroll position
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
       
-      if (isScrollingRef.current) return;
-      
-      const direction = e.deltaY > 0 ? 1 : -1;
-      const nextSection = Math.max(0, Math.min(totalSections - 1, currentSection + direction));
-      
-      if (nextSection !== currentSection) {
-        isScrollingRef.current = true;
-        setCurrentSection(nextSection);
-        
-        setTimeout(() => {
-          isScrollingRef.current = false;
-        }, 1000);
-      }
+      sectionsRef.current.forEach((section, index) => {
+        if (section) {
+          const { offsetTop, offsetHeight } = section;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setCurrentSection(index);
+          }
+        }
+      });
     };
 
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel);
-  }, [currentSection]);
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Track mouse position for 3D effects
   useEffect(() => {
@@ -83,17 +78,20 @@ const Index = () => {
   }, []);
 
   const handleNavigate = useCallback((section: number) => {
-    setCurrentSection(section);
+    const targetSection = sectionsRef.current[section];
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
   }, []);
 
   const handleEnter = useCallback(() => {
-    setCurrentSection(1);
-  }, []);
+    handleNavigate(1);
+  }, [handleNavigate]);
 
   return (
     <div 
       ref={containerRef}
-      className="relative min-h-screen bg-background overflow-hidden"
+      className="relative min-h-screen bg-background"
     >
       {/* Cursor glow effect */}
       <div 
@@ -104,7 +102,7 @@ const Index = () => {
         }}
       />
 
-      {/* 3D Background Scene */}
+      {/* 3D Background Scene - TETAP ADA (laptop & stars) */}
       <Scene3D 
         currentSection={currentSection} 
         mousePosition={mousePosition}
@@ -116,35 +114,27 @@ const Index = () => {
         onNavigate={handleNavigate}
       />
 
-      {/* Main Content */}
+      {/* Main Content - Normal scroll flow */}
       <main className="relative z-10">
-        <div 
-          className="transition-transform duration-1000 ease-out"
-          style={{ transform: `translateY(-${currentSection * 100}vh)` }}
-        >
+        <div ref={(el) => el && (sectionsRef.current[0] = el)}>
           <HeroSection onEnter={handleEnter} />
+        </div>
+        <div ref={(el) => el && (sectionsRef.current[1] = el)}>
           <SkillsSection visible={currentSection === 1} />
+        </div>
+        <div ref={(el) => el && (sectionsRef.current[2] = el)}>
           <ProjectsSection visible={currentSection === 2} />
+        </div>
+        <div ref={(el) => el && (sectionsRef.current[3] = el)}>
           <ExperienceSection visible={currentSection === 3} />
+        </div>
+        <div ref={(el) => el && (sectionsRef.current[4] = el)}>
           <CertificatesSection visible={currentSection === 4} />
+        </div>
+        <div ref={(el) => el && (sectionsRef.current[5] = el)}>
           <ContactSection visible={currentSection === 5} />
         </div>
       </main>
-
-      {/* Section indicators */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-3">
-        {[...Array(totalSections)].map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleNavigate(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              currentSection === index
-                ? 'bg-neon-purple w-2 h-8 glow-box'
-                : 'bg-muted-foreground/30 hover:bg-muted-foreground/60'
-            }`}
-          />
-        ))}
-      </div>
 
       {/* Background gradient overlays */}
       <div className="fixed inset-0 pointer-events-none z-0">

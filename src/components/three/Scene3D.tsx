@@ -1,9 +1,8 @@
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Stars } from '@react-three/drei';
 import { ParticleField } from './ParticleField';
 import { FloatingLaptop } from './FloatingLaptop';
-import { SkillConstellation } from './SkillConstellation';
 
 interface Scene3DProps {
   currentSection: number;
@@ -45,7 +44,7 @@ export const Scene3D = ({ currentSection, mousePosition }: Scene3DProps) => {
             </group>
           )}
           
-          <SkillConstellation visible={currentSection === 1} />
+          {/* SkillConstellation DIHAPUS - objek geometri warna-warni yang rotate */}
           
           <Environment preset="night" />
         </Suspense>
