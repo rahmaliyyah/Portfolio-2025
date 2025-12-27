@@ -5,27 +5,11 @@ import { Briefcase, Calendar } from 'lucide-react';
 const experiences = [
   {
     id: 1,
-    title: 'Frontend Developer Intern',
-    company: 'Tech Startup',
-    period: '2024 - Present',
-    description: 'Building responsive web applications with React and TypeScript. Implemented new features that increased user engagement by 35%.',
-    skills: ['React', 'TypeScript', 'Tailwind CSS'],
-  },
-  {
-    id: 2,
-    title: 'Freelance Web Developer',
-    company: 'Self-Employed',
-    period: '2023 - 2024',
-    description: 'Delivered 10+ custom websites for small businesses. Focused on performance optimization and modern design.',
-    skills: ['Next.js', 'Node.js', 'MongoDB'],
-  },
-  {
-    id: 3,
-    title: 'Open Source Contributor',
-    company: 'Various Projects',
-    period: '2022 - Present',
-    description: 'Contributing to open-source projects, including UI component libraries and developer tools.',
-    skills: ['Git', 'JavaScript', 'Documentation'],
+    title: 'Laboratory Assistant of Web Application Development Lab',
+    company: 'Brawijaya University',
+    period: 'Aug 2025 - Dec 2025',
+    description: 'Assisted in delivering web application development practicum sessions for 34 students, guiding them in building dynamic web applications using Laravel, MySQL, AJAX, and core web technologies (HTML, CSS, JavaScript)',
+    skills: ['Laravel', 'HTML', 'CSS', 'JavaScript', 'MySQL', 'AJAX'],
   },
 ];
 

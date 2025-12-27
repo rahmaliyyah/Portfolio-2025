@@ -5,37 +5,101 @@ import { ExternalLink, Github } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory management and AI-powered recommendations.',
-    problem: 'Small businesses struggling with online presence',
-    role: 'Full-Stack Developer',
-    skills: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    results: '40% increase in conversion rates',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+    title: 'KarirUB',
+    description: 'A web-based career information system for Universitas Brawijaya alumni with integrated authentication, job search, applications, and admin management.',
+    role: 'PM x Fullstack Programmer',
+    skills: ['Laravel', 'PHP', 'MySQL', 'Tailwind CSS', 'JavaScript'],
+    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop',
     github: '#',
     live: '#',
   },
   {
     id: 2,
-    title: 'AI Study Assistant',
-    description: 'An intelligent learning companion that adapts to student learning patterns using machine learning.',
-    problem: 'Students need personalized study guidance',
-    role: 'Lead Developer',
-    skills: ['Python', 'TensorFlow', 'React', 'PostgreSQL'],
-    results: '25% improvement in test scores',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop',
+    title: 'TrustArisan',
+    description: 'A blockchain-based digital arisan platform ensuring transparent and trustless transactions with smart contract integration.',
+    role: 'Front-End Programmer',
+    skills: ['React.js', 'Next.js', 'Blockchain', 'Smart Contracts'],
+    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop',
     github: '#',
     live: '#',
   },
   {
     id: 3,
-    title: 'Portfolio Generator',
-    description: 'A no-code platform for creatives to build stunning portfolios with customizable 3D elements.',
-    problem: 'Designers lack coding skills for portfolios',
-    role: 'Frontend Developer',
-    skills: ['Three.js', 'React', 'TypeScript', 'Tailwind'],
-    results: '10,000+ portfolios created',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+    title: 'Langit Nusantara',
+    description: 'A location-based real-time weather information system across Indonesia integrating BMKG Weather API and geocoding services.',
+    role: 'Fullstack Programmer',
+    skills: ['HTML', 'Tailwind CSS', 'REST API', 'BMKG API'],
+    image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=600&h=400&fit=crop',
+    github: '#',
+    live: '#',
+  },
+  {
+    id: 4,
+    title: 'BerdeTak',
+    description: 'An IoT-based health monitoring system using ESP32 and MAX30102 sensor with mobile dashboard for real-time heart rate and SpO₂ tracking.',
+    role: 'Fullstack Programmer',
+    skills: ['ESP32', 'Java', 'Android Studio', 'IoT', 'XML'],
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop',
+    github: '#',
+    live: '#',
+  },
+  {
+    id: 5,
+    title: 'Retrieval',
+    description: 'An Android mobile application for lost and found item information at FILKOM, Universitas Brawijaya. Integrated with Firebase for real-time data storage and retrieval.',
+    role: 'Fullstack Programmer',
+    skills: ['Java', 'Android Studio', 'Firebase'],
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop',
+    github: '#',
+    live: '#',
+  },
+  {
+    id: 6,
+    title: 'RecipeBox',
+    description: 'An Android mobile application for managing personal cooking recipes digitally with full CRUD functionality and Firebase integration.',
+    role: 'Fullstack Programmer',
+    skills: ['Java', 'Android Studio', 'Firebase', 'Glide'],
+    image: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&h=400&fit=crop',
+    github: '#',
+    live: '#',
+  },
+  {
+    id: 7,
+    title: 'YOLOv8 Project',
+    description: 'A computer vision project utilizing YOLOv8 for object detection and recognition tasks.',
+    role: 'Fullstack Programmer',
+    skills: ['YOLOv8', 'Python', 'Computer Vision'],
+    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop',
+    github: '#',
+    live: '#',
+  },
+  {
+    id: 8,
+    title: 'ThingsBoard IoT Dashboard',
+    description: 'An IoT data visualization project using ThingsBoard platform for real-time monitoring and analytics.',
+    role: 'IoT Developer',
+    skills: ['ThingsBoard', 'IoT', 'Data Visualization'],
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
+    github: '#',
+    live: '#',
+  },
+  {
+    id: 9,
+    title: 'Real-Time Chat System',
+    description: 'Backend system for room-based messaging with polyglot persistence architecture using MongoDB and Redis with WebSocket support.',
+    role: 'Backend Developer',
+    skills: ['MongoDB', 'Redis', 'WebSocket', 'Node.js'],
+    image: 'https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=600&h=400&fit=crop',
+    github: '#',
+    live: '#',
+  },
+  {
+    id: 10,
+    title: 'TukarBaju',
+    description: 'Add your project description here.',
+    role: 'Add your role here',
+    skills: ['Add', 'Your', 'Skills', 'Here'],
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop',
     github: '#',
     live: '#',
   },
@@ -73,14 +137,14 @@ export const ProjectsSection = ({ visible }: ProjectsSectionProps) => {
     >
       <div className="text-center mb-16">
         <h2 className="font-display text-4xl md:text-6xl font-bold mb-4">
-          <span className="text-gradient">Featured Projects</span>
+          <span className="text-gradient">Projects</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Crafted with passion, built with purpose
         </p>
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
         {projects.map((project, index) => (
           <div
             key={project.id}
@@ -118,7 +182,7 @@ export const ProjectsSection = ({ visible }: ProjectsSectionProps) => {
               <h3 className="font-display text-xl font-bold mb-2 text-foreground group-hover:text-gradient transition-all duration-300">
                 {project.title}
               </h3>
-              <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+              <p className="text-muted-foreground text-sm mb-4">
                 {project.description}
               </p>
               
@@ -134,10 +198,10 @@ export const ProjectsSection = ({ visible }: ProjectsSectionProps) => {
                 ))}
               </div>
               
-              {/* Results */}
+              {/* Role */}
               <div className="pt-4 border-t border-border/50">
                 <p className="text-xs text-muted-foreground">
-                  <span className="text-neon-cyan">Impact:</span> {project.results}
+                  <span className="text-neon-cyan">Role:</span> {project.role}
                 </p>
               </div>
             </div>
