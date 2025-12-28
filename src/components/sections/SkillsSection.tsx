@@ -219,20 +219,20 @@ export const SkillsSection = ({ visible }: SkillsSectionProps) => {
       </div>
 
       {/* Stats summary */}
-      <div className="mt-16 flex flex-wrap items-center justify-center gap-8">
+      <div className="mt-16 flex flex-wrap items-center justify-center gap-4 md:gap-8">
         <div className="text-center">
-          <div className="text-4xl font-bold text-gradient mb-1">23+</div>
-          <div className="text-sm text-muted-foreground">Technologies</div>
+          <div className="text-2xl md:text-4xl font-bold text-gradient mb-1">23+</div>
+          <div className="text-xs md:text-sm text-muted-foreground">Technologies</div>
         </div>
-        <div className="w-px h-12 bg-border" />
+        <div className="w-px h-8 md:h-12 bg-border" />
         <div className="text-center">
-          <div className="text-4xl font-bold text-gradient mb-1">2+</div>
-          <div className="text-sm text-muted-foreground">Years Experience</div>
+          <div className="text-2xl md:text-4xl font-bold text-gradient mb-1">2+</div>
+          <div className="text-xs md:text-sm text-muted-foreground">Years Experience</div>
         </div>
-        <div className="w-px h-12 bg-border" />
+        <div className="w-px h-8 md:h-12 bg-border" />
         <div className="text-center">
-          <div className="text-4xl font-bold text-gradient mb-1">10+</div>
-          <div className="text-sm text-muted-foreground">Projects Built</div>
+          <div className="text-2xl md:text-4xl font-bold text-gradient mb-1">10+</div>
+          <div className="text-xs md:text-sm text-muted-foreground">Projects Built</div>
         </div>
       </div>
     </section>
