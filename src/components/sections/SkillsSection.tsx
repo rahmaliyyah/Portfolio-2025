@@ -153,7 +153,7 @@ export const SkillsSection = ({ visible }: SkillsSectionProps) => {
             <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500`} />
             
             {/* Glow effect */}
-            <div className={`absolute -inset-1 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-30 blur-2xl rounded-3xl transition-opacity duration-500`} />
+            <div className={`absolute -inset-1 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-20 blur-xl rounded-3xl transition-opacity duration-500`} />
             
             {/* Content */}
             <div className="relative z-10">
@@ -184,7 +184,7 @@ export const SkillsSection = ({ visible }: SkillsSectionProps) => {
                     <div className="flex flex-col items-center gap-2 cursor-pointer">
                       {/* Glow effect on hover */}
                       <div 
-                        className="absolute inset-0 opacity-0 group-hover/skill:opacity-30 blur-xl transition-opacity duration-300 rounded-full"
+                        className="absolute inset-0 opacity-0 group-hover/skill:opacity-20 blur-lg transition-opacity duration-300 rounded-full"
                         style={{ backgroundColor: skill.color }}
                       />
                       
@@ -211,8 +211,8 @@ export const SkillsSection = ({ visible }: SkillsSectionProps) => {
             </div>
 
             {/* Corner decoration */}
-            <div className="absolute top-0 right-0 w-40 h-40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-              <div className={`absolute inset-0 bg-gradient-to-br ${category.color} blur-3xl rounded-full transform translate-x-20 -translate-y-20`} />
+            <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.color} blur-2xl rounded-full transform translate-x-20 -translate-y-20`} />
             </div>
           </div>
         ))}

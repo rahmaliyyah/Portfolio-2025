@@ -196,9 +196,15 @@ export const CertificatesSection = ({ visible }: CertificatesSectionProps) => {
                 {cert.date}
               </p>
 
-              {/* External Link Icon */}
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ExternalLink className="w-5 h-5 text-neon-purple" />
+              {/* External Link Icon - Always visible on mobile */}
+              <div className="absolute top-4 right-4 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                <ExternalLink className="w-5 h-5 text-neon-purple animate-pulse" />
+              </div>
+              
+              {/* Click indicator at bottom - Mobile only */}
+              <div className="md:hidden mt-4 pt-4 border-t border-border/30 flex items-center justify-center gap-2 text-xs text-neon-purple/80">
+                <ExternalLink className="w-3 h-3" />
+                <span>Tap to view certificate</span>
               </div>
               
               {/* Hover effect */}
