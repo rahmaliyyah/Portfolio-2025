@@ -134,7 +134,7 @@ export const SkillsSection = ({ visible }: SkillsSectionProps) => {
           <span className="text-gradient">Skills</span>
         </h2>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-          A powerful constellation of technologies I use to craft exceptional digital experiences
+          A powerful constellation of technologies I use to craft digital experiences
         </p>
       </div>
       
