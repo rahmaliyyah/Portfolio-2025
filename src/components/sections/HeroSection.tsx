@@ -57,7 +57,7 @@ export const HeroSection = ({ onEnter }: HeroSectionProps) => {
           ref={subtitleRef}
           className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed opacity-0"
         >
-          <span className="text-foreground font-medium">Aspiring Full-Stack Developer</span>
+          <span className="text-foreground font-medium">Aspiring Full-Stack Developer | Web & Mobile Dev Enthusiast</span>
           <br />
           An Information Technology Student who passionate about creating 
           <span className="text-neon-purple"> impactful web experiences</span> and 
