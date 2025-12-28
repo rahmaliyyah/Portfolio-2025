@@ -21,36 +21,3 @@ A modern, interactive portfolio website showcasing my journey as an aspiring Ful
 **Frontend:** React 18+ • TypeScript • Vite • Tailwind CSS • GSAP • Three.js • Lucide React
 
 **Tools:** ESLint • Git • VS Code
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
-```
-
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Start development server
-```bash
-npm run dev
-```
-
-4. Open `http://localhost:5173` in your browser
-
-### Build for Production
-
-```bash
-npm run build
-```
-
